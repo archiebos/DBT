@@ -41,3 +41,9 @@ models:
       
     office_weather:
       +materialized: view
+
+    marts:
+      materialized: table
+    
+    staging:
+      materialized: view
