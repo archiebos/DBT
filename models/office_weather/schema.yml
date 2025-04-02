@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: office_weather
+    schema: "{{target.schema}}"
+    tables:
+      - name: weather_readings
+
+models:
+  - name: stg_weather_data
