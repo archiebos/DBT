@@ -8,3 +8,6 @@ sources:
 
 models:
   - name: stg_weather_data
+    config:
+     pre_hook: 
+      - "{{ fetch_weather() }}"
