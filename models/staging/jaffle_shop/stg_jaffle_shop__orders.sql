@@ -4,4 +4,5 @@
     , order_date
     , status
 
-from raw.jaffle_shop.orders
+
+from demo_db.raw_jaffle_shop.orders
