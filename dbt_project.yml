@@ -47,3 +47,5 @@ models:
     
     staging:
       materialized: view
+
+    

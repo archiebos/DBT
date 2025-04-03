@@ -1,10 +1,5 @@
 
 
-    {{
-        config(
-            materialized='table'
-        )
-    }}
 
 
 
