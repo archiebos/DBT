@@ -1,27 +1,38 @@
 
 with cte as (
-
-
-
 select 
 
-     M.order_id
-    , M.customer_id
-    , P.AMOUNT
+    M.*
+    , P.AMOUNT/100 as amount
+
 
     from {{ ref('stg_jaffle_shop__orders') }} M
 
- LEFT JOIN {{ ref('stg_stripe__payments') }} P
+ LEFT JOIN {{ ref('stg_stripe__payments') }} P USING (ORDER_ID))
+ ,
 
-  ON M.ORDER_ID= P.ORDER_ID)
-    select 
+    AGG AS (
 
-
+  SELECT
     customer_id
-    , sum(amount)
-    from cte 
+    ,sum(amount) lifetime_amount
+    
+    from 
 
-    group by customer_id
+    CTE
+
+    group by customer_id )
+
+    SELECT 
+    
+    *
+    
+
+     FROM CTE
+     LEFT JOIN AGG USING (CUSTOMER_ID)
+
+
+  
 
 
 
