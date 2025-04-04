@@ -3,18 +3,26 @@ sources:
   - name: raw_jaffle_shop
     database: raw
     schema: jaffle_shop
-    freshness:
-          warn_after:
-            count: 6
-            period: hour
-          error_after:
-            count: 1000
-            period: day
-    loaded_at_field: loaded_at_field
+    # freshness:
+    #       warn_after:
+    #         count: 6
+    #         period: hour
+    #       error_after:
+    #         count: 1000
+    #         period: day
+    # loaded_at_field: loaded_at_field
 
     tables:
       - name: customers
-        freshness: null
-        
+        freshness: null     
+        columns:
+          - name: ID
+            tests:
+              - unique 
+              - not_null
       - name: orders
-        
+        columns:
+          - name: ID
+            tests:
+              - unique 
+              - not_null        
