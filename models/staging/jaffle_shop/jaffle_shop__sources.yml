@@ -3,6 +3,7 @@ sources:
   - name: raw_jaffle_shop
     database: raw
     schema: jaffle_shop
+    description: clone of a postgres application process
     # freshness:
     #       warn_after:
     #         count: 6
@@ -14,9 +15,11 @@ sources:
 
     tables:
       - name: customers
+        description: raw cust data
         freshness: null     
         columns:
           - name: ID
+            description: primary key for cust data
             tests:
               - unique 
               - not_null
