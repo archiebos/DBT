@@ -17,16 +17,16 @@ paid_order as (
 final as (
     select
 
-        order_id,
-        customer_id,
-        order_placed_at,
-        order_status,
+        paid_orders.order_id,
+        paid_orders.customer_id,
+        paid_orders.order_placed_at,
+        paid_orders.order_status,
 
-        total_amount_paid,
-        payment_finalized_date,
+        paid_orders.total_amount_paid,
+        paid_orders.payment_finalized_date,
                 
-        customer_first_name,
-        customer_last_name,
+        customers.customer_first_name,
+        customers.customer_last_name
 
         -- Sales transaction sequence
         row_number() over (order by order_id) as transaction_seq,
@@ -51,7 +51,8 @@ final as (
             order by order_placed_at
         ) as fdos
 
-    from paid_orders
+    from paid_orders 
+    left join customer on paid_order.customer_id= customer.customer_id
     
 )
 
