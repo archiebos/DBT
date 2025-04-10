@@ -1,1 +1,0 @@
-select * from {{ source('stripe_payments_refactor', 'payment') }}
