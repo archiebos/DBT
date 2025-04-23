@@ -38,9 +38,6 @@ models:
     library_loans:
       +materialized: table
       
-    office_weather:
-      +materialized: view
-
     marts:
       +materialized: table
     

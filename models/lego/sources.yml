@@ -1,0 +1,10 @@
+sources:
+  - name: lego
+    database: dbt_course
+    schema: lego
+    tables:
+      - name: parts
+      - name: inventory_parts
+      - name: inventories
+      - name: sets
+      - name: themes
