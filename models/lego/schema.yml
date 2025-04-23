@@ -1,0 +1,31 @@
+
+models:
+  - name: parts_per_set
+    description: This shows us the number of parts per set
+
+    columns:
+      - name: parts
+        data_tests:
+          - not_null
+      # - name: unique_part
+      #   tests:
+      #     - accepted_values:
+      #         values:
+      #           - ['unique', 'not unique']
+      - name: set_name
+        tests:
+          - not_null
+      - name: theme_name
+        tests:
+          - not_null
+      - name: set_year
+        tests:
+          - not_null
+
+  - name: unique_parts
+    description: This gives us all of the unique parts
+    columns:
+      - name: part_num
+        tests:
+          - not_null
+        
