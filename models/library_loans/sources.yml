@@ -1,0 +1,39 @@
+
+sources:
+  - name: library
+    database: dbt_course
+    schema: library_loans
+    tables:
+      - name: books_factual
+        columns:
+          - name: Book_id
+            description: Primary Key of this table 
+            tests:
+              - unique 
+              - not_null
+      - name: books_fictional
+        columns:
+          - name: Book_id
+            description: Primary key
+            tests:
+              - unique
+              - not_null
+      - name: members
+        columns:
+          - name: member_id
+            description: Primary Key
+            tests:
+              - not_null
+              - unique
+          - name: membership_tier
+            tests:
+              - accepted_values:
+                values: ['Gold','Silver','Bronze']
+
+      - name: loans
+        columns:
+          - name: laon_id
+            description: Primary Key
+            tests:
+              - unique
+              - not_null
