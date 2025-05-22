@@ -27,7 +27,7 @@ models:
         data_tests:
           - unique
           - not_null
-  - name: stg_loans
+  - name: stg_loan
     columns:
       - name: loan_id
         data_tests:
@@ -48,7 +48,7 @@ models:
       - name: fee_applied
         data_tests:
           - no_negative_values
-  - name: customers_with_late_fees
+  - name: customer_late_fees
     data_tests:
       - dbt_utils.equal_rowcount:
           compare_model: ref('solution')

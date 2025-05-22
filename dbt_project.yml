@@ -44,4 +44,7 @@ models:
     staging:
       +materialized: view
 
+    office_weather:
+      +materialized: view
+
     
